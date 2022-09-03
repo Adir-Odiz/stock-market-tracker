@@ -1,6 +1,7 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import { OverviewPage } from "./pages/OverviewPage/OverviewPage"
 import { StockDetailPage } from "./pages/StockDetailPage/StockDetailPage"
+// import { OverviewPage, StockDetailPage } from "./pages/index"
 
 import './App.css'
 
