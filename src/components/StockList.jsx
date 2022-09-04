@@ -10,19 +10,19 @@ export const StockList = () => {
         const fetchData = async () => {
             const responses = []
             try {
-                const responses = Promise.all(finnHub.get("/quote", {
+                const responses = Promise.all([finnHub.get("/quote", { // Check why it's not working without an array
                     params: {
                         symbol: "MSFT"
                     }
                 }), finnHub.get("/quote", {
                     params: {
-                        symbol: "GOOGLE"
+                        symbol: "GOOGL"
                     }
                 }), finnHub.get("/quote", {
                     params: {
                         symbol: "AAPL"
                     }
-                }))
+                })])
                 
                 console.log(responses)
                 if (isMounted) {
