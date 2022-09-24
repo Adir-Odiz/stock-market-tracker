@@ -1,0 +1,21 @@
+.backgroundImg {
+    background-image: url("../src/assets/BackgroundImg.jpg");
+    background-size: cover;
+    min-width: 100vh;
+    min-height: 100vh;
+    opacity: 90%;
+    backdrop-filter: blur(5px);
+}
+.relative{
+    position: relative;
+}
+.stockList{
+    background-color: rgba(42, 42, 42, 0.8);
+    border-radius: 8px;
+}
+.overviewPage{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+}

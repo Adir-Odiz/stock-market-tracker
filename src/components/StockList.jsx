@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import finnHub from "../apis/finnHub"
 import {FaAngleUp, FaAngleDown} from "react-icons/fa"
+import { WatchListContext } from "../context/WatchListContext" // WHY NOT WORKINGGGGGGG
 
 export const StockList = () => {
-    const [stock, setStock] = useState()
-    const [watchList, setWatchList] = useState(["GOOGL", "MSFT", "AMZN"])
+    const [stock, setStock] = useState([])
+    const { watchList, deleteStock } = useContext(WatchListContext)
     
     const stockColor = (change) => {
         return change > 0 ? "success" : "danger"
@@ -27,7 +28,7 @@ export const StockList = () => {
                     })
                 }))
                 
-                console.log(responses)
+                // console.log(responses)
                 const data = responses.map((response) => {
                     return {
                     data: response.data,
@@ -40,18 +41,19 @@ export const StockList = () => {
                     setStock(data)
                 }
             } catch (err) {
+                console.log(err)
 
             }
         }
         fetchData()
 
         return () => (isMounted = false)
-    }, [])
+    }, [watchList])
 
 
     return <div>
-        <table className="table hover mt-5">
-            <thead style ={{ color: "rgb(79,89,102)"}}>
+        <table className="table mt-5 mx-auto" style={{width: "99vw", textAlign: "center"}}>
+            <thead style ={{ color: "rgb(139,129,152)"}}>
                 <tr>
                     <th scope="col">Name</th>
                     <th scope="col">Last</th>
@@ -66,7 +68,7 @@ export const StockList = () => {
             <tbody>
                 {stock?.map((stockData) => {
                     return (
-                        <tr className="table-row" key={stockData.symbol}>
+                        <tr className="table-row" style={{color:"rgb(200,200,200)"}} key={stockData.symbol}>
                             <th scope="row">{stockData.symbol}</th>
                             <td>{stockData.data.c}</td>
                             <td className={`text-${stockColor(stockData.data.d)}`}>{stockData.data.d} {directionIcon(stockData.data.d)}</td>
