@@ -72,7 +72,7 @@ export const StockList = () => {
             <tbody>
                 {stock?.map((stockData) => {
                     return (
-                        <tr onClick={() => handleStockSelect(stockData.symbol)} className="table-row" style={{color:"rgb(200,200,200)"}} key={stockData.symbol}>
+                        <tr onClick={() => handleStockSelect(stockData.symbol)} className="table-row" style={{color:"rgb(200,200,200)", cursor:"pointer", }} key={stockData.symbol}>
                             <th scope="row">{stockData.symbol}</th>
                             <td>{stockData.data.c}</td>
                             <td className={`text-${stockColor(stockData.data.d)}`}>{stockData.data.d} {directionIcon(stockData.data.d)}</td>
