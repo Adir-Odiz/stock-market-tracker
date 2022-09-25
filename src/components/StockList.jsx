@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from "react"
+import { useNavigate } from "react-router-dom"
 import finnHub from "../apis/finnHub"
 import {FaAngleUp, FaAngleDown} from "react-icons/fa"
 import { WatchListContext } from "../context/WatchListContext" // WHY NOT WORKINGGGGGGG
@@ -6,7 +7,7 @@ import { WatchListContext } from "../context/WatchListContext" // WHY NOT WORKIN
 export const StockList = () => {
     const [stock, setStock] = useState([])
     const { watchList, deleteStock } = useContext(WatchListContext)
-    
+    const navigate = useNavigate()
     const stockColor = (change) => {
         return change > 0 ? "success" : "danger"
     }
@@ -50,6 +51,9 @@ export const StockList = () => {
         return () => (isMounted = false)
     }, [watchList])
 
+    const handleStockSelect = (symbol) => {
+        navigate(`detail/${symbol}`)
+    }
 
     return <div>
         <table className="table mt-5 mx-auto" style={{width: "99vw", textAlign: "center"}}>
@@ -68,7 +72,7 @@ export const StockList = () => {
             <tbody>
                 {stock?.map((stockData) => {
                     return (
-                        <tr className="table-row" style={{color:"rgb(200,200,200)"}} key={stockData.symbol}>
+                        <tr onClick={() => handleStockSelect(stockData.symbol)} className="table-row" style={{color:"rgb(200,200,200)"}} key={stockData.symbol}>
                             <th scope="row">{stockData.symbol}</th>
                             <td>{stockData.data.c}</td>
                             <td className={`text-${stockColor(stockData.data.d)}`}>{stockData.data.d} {directionIcon(stockData.data.d)}</td>

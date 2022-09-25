@@ -15,13 +15,13 @@ export const AutoComplete = () => {
                 overflowY: "scroll",
                 overflowX: "hidden",
                 cursor: "pointer"
-            }}className={`dropdown-menu ${dropDownClass}`}>
+            }}className={`dropdown-menu dropdown-toggle ${dropDownClass}`}>
                 {results.map((result) => {
                     return (
                         <li onClick={() => {
                             addStock(result.symbol)
                             setSearch("")
-                        }} className="dropdown-item" key={result.symbol}>
+                        }}className="dropdown-item" key={result.symbol}>
                             {result.description} ({result.symbol})
                         </li>
                     )
