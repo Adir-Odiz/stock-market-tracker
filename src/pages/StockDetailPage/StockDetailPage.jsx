@@ -21,36 +21,37 @@ export const StockDetailPage = () => {
             }
             const oneWeekAgo = currentTime - 7*24*60*60
             const oneYearAgo = currentTime - 365*24*60*60
-            const responseDay = await finnHub.get("/stock/candle", {
+        try {
+            const responses = await Promise.all([finnHub.get("/stock/candle", {
                 params: {
                     symbol, 
                     from: oneDayAgo, 
                     to: currentTime, 
                     resolution: 30
                 }
-            })
-            const responseWeek = await finnHub.get("/stock/candle", {
+            }), finnHub.get("/stock/candle", {
                 params: {
                     symbol, 
                     from: oneWeekAgo, 
                     to: currentTime, 
                     resolution: 60
                 }
-            })
-            const responseYear = await finnHub.get("/stock/candle", {
+            }), finnHub.get("/stock/candle", {
                 params: {
                     symbol, 
                     from: oneYearAgo, 
                     to: currentTime, 
                     resolution: "W"
                 }
-            })
-            console.log(responseDay)
-            console.log(responseWeek)
-            console.log(responseYear)
+            })])
+            console.log(responses)
+        }catch(err){
+            console.log(err)
+        }
         }
         fetchData()
     }, [])
 
     return <div>{symbol}</div>
 }
+
