@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import finnHub from "../apis/finnHub"
 import {FaAngleUp, FaAngleDown} from "react-icons/fa"
-import { WatchListContext } from "../context/WatchListContext" // WHY NOT WORKINGGGGGGG
+import { WatchListContext } from "../context/WatchListContext"
 
 export const StockList = () => {
     const [stock, setStock] = useState([])
@@ -29,7 +29,7 @@ export const StockList = () => {
                     })
                 }))
                 
-                // console.log(responses)
+                
                 const data = responses.map((response) => {
                     return {
                     data: response.data,
