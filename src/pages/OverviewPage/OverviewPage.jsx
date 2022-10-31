@@ -9,7 +9,7 @@ export const OverviewPage = () => {
         <div className="overviewPage">
             <Logo />
             <AutoComplete />
-            <div className="stockList">
+            <div className="stockList mx-auto">
                 <StockList />
             </div>
         </div>

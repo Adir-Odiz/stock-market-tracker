@@ -75,9 +75,9 @@ export const StockDetailPage = () => {
     fetchData();
   }, [symbol])
 
-  return <div className="backgroundImg">
+  return <div className="backgroundImg ">
             <Logo />
-            <div>{chartData && (
+            <div className="d-flex justify-content-center">{chartData && (
                 <StockChart chartData={chartData} symbol={symbol}/>
             )}</div>
          </div>

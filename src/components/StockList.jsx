@@ -56,7 +56,7 @@ export const StockList = () => {
     }
 
     return <div>
-        <table className="table mt-5 mx-auto" style={{width: "99vw", textAlign: "center"}}>
+        <table className="table mt-5 mx-auto" style={{width: "70vw", textAlign: "center"}}>
             <thead style ={{ color: "rgb(139,129,152)"}}>
                 <tr>
                     <th scope="col">Name</th>
