@@ -3,7 +3,7 @@ Midterm Front-End project built by Adir Odiz for HackerU's .NET Course
 
 Class ID: D130222ER
 Email: odizadir@gmail.com
-
+Phone: 050-2245012
 This project was built on React, using Vite
 The site is dedicated to monitor stocks from New York Stock Exchance (or Wall Street)
 
