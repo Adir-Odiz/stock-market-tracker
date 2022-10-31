@@ -1,4 +1,4 @@
-#Stocker - a stock market tracker
+# Stocker - a stock market tracker
 Midterm Front-End project built by Adir Odiz for HackerU's .NET Course
 
 Class ID: D130222ER
