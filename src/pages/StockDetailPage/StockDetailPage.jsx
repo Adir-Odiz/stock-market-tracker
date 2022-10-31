@@ -78,7 +78,7 @@ export const StockDetailPage = () => {
   return <div className="backgroundImg">
             <Logo />
             <div>{chartData && (
-                <StockChart />
+                <StockChart chartData={chartData} symbol={symbol}/>
             )}</div>
          </div>
 }
