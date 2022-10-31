@@ -23,3 +23,11 @@
 .table-row:hover{
     background-color: rgba(58, 58, 58, 0.85);
 }
+.delete-button {
+    visibility: hidden;
+    display: inline-block;
+}
+
+.table-row:hover .delete-button {
+    visibility: visible;
+}
